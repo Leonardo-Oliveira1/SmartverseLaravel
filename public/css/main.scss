@@ -1,0 +1,60 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans&display=swap');
+
+$main-font: 'Open Sans', sans-serif;
+$secondary-font: 'Montserrat', sans-serif;
+$text-font: 'Open Sans', sans-serif;
+
+$main-color: #B95C00;
+$main-color-hover: #964b00;
+
+* {
+    margin: 0;
+}
+
+html {
+    font-size: 62.5%;
+    height: 100%;
+    min-height: 100%;
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    overflow-X: hidden;
+
+}
+
+body {
+    background-color: #f7f7f7;
+    min-height: 100%;
+}
+
+@import "header";
+
+#categoryTitle {
+    font-family: $main-font;
+    padding: 60px;
+    padding-bottom: 30px;
+    font-size: calc(24px + (36 - 24) * (100vw - 400px) / (1920 - 400));
+}
+
+#categoryText {
+    font-family: $main-font;
+    font-size: calc(18px + (24 - 18) * (100vw - 400px) / (1920 - 400));
+    padding-bottom: 20px;
+}
+
+#highlightText {
+    color: $main-color;
+}
+
+.container {
+    display: flex;
+    width: 100%;
+    height: auto;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    @import "homepage";
+}
+
+@import "footer";
+@import "postPage";

@@ -1,0 +1,373 @@
+header{
+    $header-color: #181726;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    padding-left: 92px;
+    padding-right: 92px;
+
+    height: 88px;
+    
+    font-size: 1.48rem;
+    font-family: $secondary-font;
+    background-color: $header-color;
+
+    a{
+        color: white;
+        text-decoration: none;
+    }
+
+    img{
+        width: 167px;
+        height: 51px;
+        padding-right: 130px;
+    }
+
+    .menu{
+        display: flex;
+        align-items: center;
+        
+    
+    
+        ul{
+            display: flex;
+            gap: 47px;
+    
+            color: white;
+            
+            font-family: $secondary-font;
+            list-style: none;
+            text-transform: uppercase;
+            font-style: italic;
+            letter-spacing: 3px;
+            li{
+                text-decoration: underline;
+                text-decoration-color: $main-color;   
+                text-underline-offset: 4px;   
+    
+                &:hover{
+                    transition: .16s;
+                    color: $main-color-hover;
+                }
+            }
+        }
+        .search-box{
+            width: fit-content;
+            height: fit-content;
+            position: relative;
+            margin-left: 120px;
+            font-family: $secondary-font;
+            img{
+                width: 34px;
+                height: 34px;
+                margin-top: 7px;
+            }
+          }
+          .input-search{
+            height: 50px;
+            border-style: none;
+            padding: 10px;
+            font-size: 18px;
+            letter-spacing: 2px;
+            outline: none;
+            border-radius: 25px;
+            transition: all .5s ease-in-out;
+            background-color: transparent;
+            padding-right: 40px;
+            color:#fff;
+    
+            width: 300px;
+            border-radius: 0px;
+            background-color: transparent;
+            border-bottom:1px solid rgba(255,255,255,.5);
+            transition: all 500ms cubic-bezier(0, 0.110, 0.35, 2);
+    
+          }
+          .input-search::placeholder{
+            color:rgba(255,255,255,.5);
+            font-size: 18px;
+            letter-spacing: 2px;
+            font-weight: 100;
+          }
+          .btn-search{
+              
+            width: 50px;
+            height: 50px;
+            border-style: none;
+            font-size: 20px;
+            font-weight: bold;
+            outline: none;
+            cursor: pointer;
+            border-radius: 50%;
+            position: absolute;
+            right: 0px;
+            color:#ffffff ;
+            background-color: $header-color;
+            pointer-events: painted;  
+    
+            border-radius: 0px;
+            border-bottom:1px solid rgba(255,255,255,.5);
+          }
+    }
+}
+
+@media only screen and (max-width: 1160px){
+    #logo{
+        position: relative;
+        left: 30px;
+    }
+}
+
+@media only screen and (max-width: 1100px) {
+    #logo{
+        position: relative;
+        left: -30px;
+    }
+    nav{
+        display: none;
+    }
+
+    header{
+        justify-content: center;
+        flex-direction: row-reverse;
+
+        img{
+            padding-right: 3vw;
+        }
+    }
+
+    .menu{
+        display:  inline-block !important;
+
+        width: 24px;
+        height: 24px;
+        
+
+        .burger{
+            position: relative;
+            left: -240px;
+            top: -3px;
+            cursor: pointer;
+            height: 22px;
+        }
+
+        .search-box{
+            position: relative;
+            left: 130px;
+            top: -40px;
+            
+            .input-search{
+                width: 240px;
+            }
+        }
+    }
+    .hamburger1, .hamburger2, .hamburger3{
+        display: flex;
+        justify-content: center;
+        
+        width: 30px;
+        height: 5px;
+        
+        margin-top: 4px;
+        margin-left: 3px;
+
+        background: $main-color;  
+        border-radius: 30px;
+    }
+
+    .menu.menuActive{
+        position: absolute;
+        top: 0;
+        left: 0;
+        
+        transition: .3s;
+        
+        background-color: #1D1C22;
+        width: 100vw;
+        height: 88px;
+        z-index: 999;
+
+        ul{
+            margin-left: -227%;
+            margin-top: 5px;
+        }
+
+        .burger{
+            position: relative;
+            left: 10vw;
+            top: 20.5px;
+            height: 25px;
+            width: 25px;
+            cursor: pointer;
+
+            
+            .hamburger1{
+                display: none;
+            }
+
+            .hamburger3{
+                transform: rotate(135deg);
+                position: relative;
+                left: -5px;
+            }
+
+            .hamburger2{
+                transform: rotate(44deg);
+                position: relative;
+                top: 9px;
+                left: -5px;
+            }
+        }
+
+        nav{
+            display: flex;
+            position: relative;
+            left: 32%;
+            width: 10px;
+        }
+
+        .search-box{
+            display: none;
+        }
+    }
+}
+
+@media only screen and (max-width: 800px) {
+    
+
+    .menu.menuActive{
+        nav{
+            left: 25%;
+        }
+    }
+
+    .menu{
+        .burger{
+            left: -200px;
+            top: -3px;
+            height: 22px;
+        }
+
+        .search-box{
+            left: 90px;
+            top: -40px;
+            
+            .input-search{
+                width: 190px;
+            }
+        }
+
+    }
+}
+
+@media only screen and (max-width: 650px) {
+    .menu.menuActive{
+        nav{
+            left: 20%;
+        }
+    }
+
+    .menu{
+        .burger{
+            left: -120px;
+        }
+
+        .search-box{
+            left: 70px;
+            
+            .input-search{
+                width: 140px;
+            }
+        }
+
+    }
+}
+
+@media only screen and (max-width: 490px) {
+    .menu.menuActive{
+        nav{
+            left: 12%;
+            top: 8px;
+        }
+
+        .burger{
+            left: 7vw;
+            top: 28px;
+        }
+
+        ul{
+            margin-left: -47%;
+            margin-top: -2px;
+        }
+
+    }
+
+    .menu{
+        .burger{
+            left: -90px;
+        }
+        .search-box{
+            .input-search{
+                width: 100px;
+            }
+        }
+    }
+}
+
+@media only screen and (max-width: 416px) {
+    #logo{
+        right: 25px;
+    }
+
+    .menu.menuActive{
+        ul{
+            font-size: 14px;
+            gap: 13px;
+        }
+        nav{
+            left: 13%;
+        }
+    }
+
+    .menu{
+        .burger{
+            left: -75px;
+        }
+        .search-box{
+            left: 70px;
+            
+            .input-search{
+                width: 85px;
+            }
+        }
+    }
+}
+
+@media only screen and (max-width: 375px) {
+    #logo{
+        right: 30px;
+    }
+
+    .menu{
+        .burger{
+            left: -60px;
+        }
+        .search-box{
+            left: 60px;
+            
+            .input-search{
+                width: 80px;
+            }
+        }
+    }
+
+    .menu.menuActive{
+        ul{
+            font-size: 11px;
+            margin-top: -1px;
+            margin-left: -2px;
+        }
+    }
+
+}

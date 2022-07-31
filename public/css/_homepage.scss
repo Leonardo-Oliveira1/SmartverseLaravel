@@ -1,0 +1,24 @@
+@import 'homepageSCSS/postshighlights';
+@import 'homepageSCSS/posts';
+@import 'homepageSCSS/CTAs';
+
+.content{
+    display: flex;
+    gap: 23px;
+    width: 91.5vw;
+    justify-content: center;
+}
+
+a{
+    text-decoration: none;
+    color: black;
+}
+
+@media only screen and (max-width: 951px) {
+    .content{
+        flex-direction: column-reverse;
+        overflow-x: hidden;
+        
+        
+    }
+}

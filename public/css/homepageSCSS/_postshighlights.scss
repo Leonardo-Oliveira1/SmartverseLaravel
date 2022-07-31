@@ -1,0 +1,225 @@
+.Postshighlights{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+    gap: 7px;
+
+    width: 91.5vw;
+    height: 460px;
+    margin-top: 32px;
+    padding-bottom: 40px;
+    
+    .Posthighlighted{
+        background-color: #000;
+        border-radius: 4px;
+        
+        @mixin highlightContent{
+            position: absolute;
+            top: 435px;
+            $h1andParagraphWidth: 40vw;
+            margin-left: 30px;
+
+            h1{
+                width: $h1andParagraphWidth;
+                max-width: 633px;
+
+                display: -webkit-box;
+                -webkit-line-clamp: 2;
+                -webkit-box-orient: vertical;
+                overflow: hidden;
+
+                color: white;
+                font-size: calc( 21px + (35 - 23) * (100vw - 400px) / (1920 - 400));
+                font-family: $main-font;
+                font-weight: bold;
+            }
+
+            p{
+                width: $h1andParagraphWidth;
+
+                color: #FFFFFF;
+                line-height: 1.4;
+                font-size: calc( 14px + (17 - 14) * (100vw - 400px) / (1920 - 400));
+                font-weight: 100;
+                font-family: $main-font;
+            }
+        }
+        .highlightContent{
+            @include highlightContent;
+        }
+        .highlightContent2{
+            @include highlightContent;
+        }
+    }
+
+    img{
+        width: 100%;
+        max-width: 700px;
+        height: 460px;
+               
+        border: 1px solid #C4C4C4;
+        border-radius: 3px;
+        
+        object-fit: cover;
+        mask-image: linear-gradient(0deg, transparent 0%, black 83%);
+        transition: transform .2s;
+
+        &:hover{
+            transform: scale(1.01);
+        }
+    }
+}
+
+@media only screen and (max-width: 951px) {
+    .Postshighlights{
+        flex-direction: column;
+        justify-content: unset;
+        align-items: unset;
+        
+        width: 74vw;
+        height: 256px;
+
+        padding-bottom: 339px;
+        margin-top: 8px;
+    
+        img{
+            height: 276px;            
+            border: none;
+        }
+
+        .Posthighlighted{
+            $h1andParagraphWidth: 91vw;
+            
+            .highlightContent{
+                position: absolute;
+                top: 275px;
+                left: 113px;
+                width: 79%;
+
+                margin-left: 22px;
+
+                h1{
+                    width: $h1andParagraphWidth;
+                }
+    
+                p{
+                    width: $h1andParagraphWidth;
+                }
+            }
+
+        .highlightContent2{
+            position: absolute;
+            top: 560px;
+            left: 105px;
+            width: 79%;
+
+            h1{
+                width: $h1andParagraphWidth;
+            }
+
+            p{
+                width: $h1andParagraphWidth;
+            }
+
+        }
+    }
+}}
+
+
+@media only screen and (max-width: 859px) {
+    .Postshighlights{   
+        width: 73vw;
+        height: 256px;
+    
+
+        img{
+            height: 276px;            
+            border: none;
+        }
+
+        .Posthighlighted{
+            $h1andParagraphWidth: 60vw;
+            
+            .highlightContent{
+                position: absolute;
+                top: 275px;
+                left: 100px;
+                width: 75%;
+
+                margin-left: 22px;
+
+                h1{
+                    width: $h1andParagraphWidth;
+                }
+    
+                p{
+                    width: $h1andParagraphWidth;
+                }
+            }
+
+        .highlightContent2{
+            position: absolute;
+            top: 560px;
+            left: 90px;
+            width: 75%;
+
+            h1{
+                width: $h1andParagraphWidth;
+            }
+
+            p{
+                width: $h1andParagraphWidth;
+            }
+
+        }
+    }
+}}
+
+@media only screen and (max-width: 699px) {
+    .Postshighlights{   
+        width: 100vw;
+        height: 256px;
+    
+        img{
+            height: 276px;            
+            border: none;
+        }
+
+        .Posthighlighted{
+            $h1andParagraphWidth: 91vw;
+            
+            .highlightContent{
+                position: absolute;
+                top: 275px;
+                left: -6px;
+                width: 87%;
+
+                margin-left: 22px;
+
+                h1{
+                    width: $h1andParagraphWidth;
+                }
+    
+                p{
+                    width: $h1andParagraphWidth;
+                }
+            }
+
+        .highlightContent2{
+            position: absolute;
+            top: 560px;
+            left: -15px;
+            width: 87%;
+
+            h1{
+                width: $h1andParagraphWidth;
+            }
+
+            p{
+                width: $h1andParagraphWidth;
+            }
+
+        }
+    }
+}}

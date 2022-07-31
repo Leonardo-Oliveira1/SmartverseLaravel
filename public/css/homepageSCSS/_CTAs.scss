@@ -1,0 +1,84 @@
+@mixin CTAsBox {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 23px;
+    gap: 20px;
+    padding-bottom: 30px;
+
+    width: 272px;
+    height: auto;
+
+    background-color: #FFFFFF;
+    border: 1px solid #C4C4C4;
+    border-radius: 3px;
+
+    h2{
+        margin-top: 20px;
+
+        font-family: $secondary-font;
+        font-size: calc( 21px + (23 - 21) * (100vw - 400px) / (1920 - 400));
+        font-weight: 100;
+    }    
+
+    h3{
+        padding: 0px 20px 0px 0px;
+        color: $main-color;
+        font-family: $secondary-font;
+        font-size: calc( 14px + (15 - 14) * (100vw - 400px) / (1920 - 400));;
+        font-weight: bold;
+
+        &:hover{
+            color: $main-color-hover;
+        }
+
+    }
+
+    .divText{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    
+    #classification{
+        font-size: calc( 23px + (40 - 23) * (100vw - 400px) / (1920 - 400));;
+        color: #515151;
+
+        width: 20px;
+        
+        font-family: $main-font;
+        padding: 0px 20px 0px 20px;
+    }
+
+    .classificationDiv{
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+    }
+
+}
+
+.CTAs{
+    .MostRead{
+        @include CTAsBox;
+    }
+
+    .Recommended{
+        @include CTAsBox;
+    }
+}
+
+@media only screen and (max-width: 951px) {
+    .CTAs{
+        .MostRead{
+            width: 85.3%;
+            height: auto;
+            margin-left: 7%;
+        }
+
+        .Recommended{
+            width: 85.3%;
+            height: auto;
+            margin-left: 7%;
+        }
+    }
+}
