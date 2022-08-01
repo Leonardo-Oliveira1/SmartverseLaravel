@@ -11,7 +11,7 @@ class showPostController extends Controller
 {
     public function index(){
         //$posts = DB::table('posts')->select('id')->get();
-        $posts = DB::table('posts')->orderByRaw('publication_date DESC')->get();
+        $posts = DB::table('posts')->orderByRaw('created_at DESC')->get();
 
         $GetLeftHighlightId = DB::table('highlightsids')->select('mainHighlightLeft')->get();
         $LeftHighlightId= json_decode(json_encode($GetLeftHighlightId), true);

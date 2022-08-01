@@ -46,7 +46,7 @@
                     <p>Por {{ $post->author }}</p>
 
                     <div class='CategoryAndLikes'>
-                        <p>Em {{ $post->category }} • {{ date('d/m/Y', strtotime($post->publication_date))}}</p>
+                        <p>Em {{ $post->category }} • {{ date('d/m/Y', strtotime($post->created_at))}}</p>
                     </div>
 
                 </div>
