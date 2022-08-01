@@ -23,9 +23,9 @@
 
         <nav>
             <ul>
-                <a href="/view/posts/livros.php"><li>Livros</li></a>
-                <a href="/view/posts/series.php"><li>Séries</li></a>
-                <a href="/view/posts/destaques.php"><li>Destaques</li></a>
+                <a href="/livros"><li>Livros</li></a>
+                <a href="/series"><li>Séries</li></a>
+                <a href="/destaques"><li>Destaques</li></a>
             </ul>
         </nav>
 

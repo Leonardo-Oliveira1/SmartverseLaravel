@@ -14,6 +14,13 @@ use Illuminate\Support\Facades\Route;
 */
 
 use App\Http\Controllers\showPostController;
+use App\Http\Controllers\categoryPages;
 
 Route::get('/', [showPostController::class, 'index']);
+Route::get('/series', [categoryPages::class, 'index']);
+Route::get('/livros', [categoryPages::class, 'index']);
+Route::get('/destaques', [categoryPages::class, 'index']);
+Route::get('/dashboard', function () {
+    return view('dashboard.dashboard');
+});
 

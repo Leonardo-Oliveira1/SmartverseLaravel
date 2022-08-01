@@ -81,8 +81,4 @@ class showPostController extends Controller
             'Recommended5' => $Recommended5
         ]);
     }
-
-    public function MostReads(){
-
-    }
 }

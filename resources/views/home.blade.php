@@ -4,7 +4,7 @@
 @section('title', 'Home')
 @section('content')
 <div class="container">
-    <a href="view/dashboard/dashboard.php">Dashboard</a>
+    <a href="/dashboard">Dashboard</a>
 
 <div class="Postshighlights">
 
@@ -71,28 +71,28 @@
 
                 <a href='{{ $MostRead2->post_link }}/'>
                     <div class='classificationDiv'>
-                        <span id='classification'>1</span>
+                        <span id='classification'>2</span>
                         <h3>{{ $MostRead2->title }}</h3>
                     </div>
                 </a>
 
                 <a href='{{ $MostRead3->post_link }}/'>
                     <div class='classificationDiv'>
-                        <span id='classification'>1</span>
+                        <span id='classification'>3</span>
                         <h3>{{ $MostRead3->title }}</h3>
                     </div>
                 </a>
 
                 <a href='{{ $MostRead4->post_link }}/'>
                     <div class='classificationDiv'>
-                        <span id='classification'>1</span>
+                        <span id='classification'>4</span>
                         <h3>{{ $MostRead4->title }}</h3>
                     </div>
                 </a>
 
                 <a href='{{ $MostRead5->post_link }}/'>
                     <div class='classificationDiv'>
-                        <span id='classification'>1</span>
+                        <span id='classification'>5</span>
                         <h3>{{ $MostRead5->title }}</h3>
                     </div>
                 </a>
@@ -116,28 +116,28 @@
 
                 <a href='{{ $Recommended2->post_link }}/'>
                     <div class='classificationDiv'>
-                        <span id='classification'>1</span>
+                        <span id='classification'>2</span>
                         <h3>{{ $Recommended2->title }}</h3>
                     </div>
                 </a>
 
                 <a href='{{ $Recommended3->post_link }}/'>
                     <div class='classificationDiv'>
-                        <span id='classification'>1</span>
+                        <span id='classification'>3</span>
                         <h3>{{ $Recommended3->title }}</h3>
                     </div>
                 </a>
 
                 <a href='{{ $Recommended4->post_link }}/'>
                     <div class='classificationDiv'>
-                        <span id='classification'>1</span>
+                        <span id='classification'>4</span>
                         <h3>{{ $Recommended4->title }}</h3>
                     </div>
                 </a>
 
                 <a href='{{ $Recommended5->post_link }}/'>
                     <div class='classificationDiv'>
-                        <span id='classification'>1</span>
+                        <span id='classification'>5</span>
                         <h3>{{ $Recommended5->title }}</h3>
                     </div>
                 </a>
