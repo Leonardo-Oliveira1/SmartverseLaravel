@@ -10,6 +10,7 @@ use App\Models\Posts;
 class showPostController extends Controller
 {
     public function index(){
+
         return view('home', [
             'posts' => $this->getPotsInColumn(5),
             'LeftHighlight' => $this->getLeftMainHighlight(),
