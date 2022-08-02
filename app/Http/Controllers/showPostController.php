@@ -10,16 +10,7 @@ use App\Models\Posts;
 class showPostController extends Controller
 {
     public function index(){
-        //$posts = DB::table('posts')->select('id')->get();
         $posts = DB::table('posts')->orderByRaw('created_at DESC')->get();
-
-        $GetLeftHighlightId = DB::table('highlightsids')->select('mainHighlightLeft')->get();
-        $LeftHighlightId= json_decode(json_encode($GetLeftHighlightId), true);
-        $LeftHighlight = DB::table('posts')->where('id', $LeftHighlightId)->first();
-
-        $GetRightHighlightId = DB::table('highlightsids')->select('mainHighlightRight')->get();
-        $RightHighlightId= json_decode(json_encode($GetRightHighlightId), true);
-        $RightHighlight = DB::table('posts')->where('id', $RightHighlightId)->first();
 
 
         $GetMostRead1Id = DB::table('highlightsids')->select('MostRead1')->get();
@@ -67,9 +58,9 @@ class showPostController extends Controller
 
         return view('home', [
             'posts' => $posts,
-            'LeftHighlight' => $LeftHighlight,
-            'RightHighlight' => $RightHighlight,
-            'MostRead1' => $MostRead1,
+            'LeftHighlight' => $this->getLeftMainHighlight(),
+            'RightHighlight' => $this->getRightMainHighlight(),
+            'MostRead1' => $this->getMostRead(1),
             'MostRead2' => $MostRead2,
             'MostRead3' => $MostRead3,
             'MostRead4' => $MostRead4,
@@ -80,5 +71,29 @@ class showPostController extends Controller
             'Recommended4' => $Recommended4,
             'Recommended5' => $Recommended5
         ]);
+    }
+
+    public function getLeftMainHighlight(){
+        $GetLeftHighlightId = DB::table('highlightsids')->select('mainHighlightLeft')->get();
+        $LeftHighlightId= json_decode(json_encode($GetLeftHighlightId), true);
+        $LeftHighlight = DB::table('posts')->where('id', $LeftHighlightId)->first();
+
+        return $LeftHighlight;
+    }
+
+    public function getRightMainHighlight(){
+        $GetRightHighlightId = DB::table('highlightsids')->select('mainHighlightRight')->get();
+        $RightHighlightId= json_decode(json_encode($GetRightHighlightId), true);
+        $RightHighlight = DB::table('posts')->where('id', $RightHighlightId)->first();
+
+        return $RightHighlight;
+    }
+
+    public function getMostRead($number){
+        $GetMostRead1Id = DB::table('highlightsids')->select('MostRead1')->get();
+        $MostRead1Id= json_decode(json_encode($GetMostRead1Id), true);
+        $MostRead{`$number`}  = DB::table('posts')->where('id', $MostRead1Id)->first();
+
+        return $MostRead{`$number`};
     }
 }
