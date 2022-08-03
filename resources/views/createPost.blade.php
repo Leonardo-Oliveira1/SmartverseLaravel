@@ -18,7 +18,7 @@
             <h1>Criar postagem</h1>
         </div>
 
-        <form method="POST" enctype='multipart/form-data'>
+        <form method="POST" action="/dashboard/submit" enctype='multipart/form-data'>
             @csrf
 
             <label>Título</label><br>
@@ -81,10 +81,11 @@
     </script>
 
     <div style="color: white">
-        <h1>title: {{ $title }}</h1>
-        <h1>metadescription: {{ $metadescription }}</h1>
-        <h1>category: {{ $category }}</h1>
-        <h1>text: {{ $text }}</h1>
+        <h1>title: {{ $data[0] }}</h1>
+        <h1>metadescription: {{ $data[1] }}</h1>
+        <h1>category: {{ $data[2] }}</h1>
+        <h1>text: {{ $data[3] }}</h1>
+        <h1>slug: {{ $data[4] }}</h1>
     </div>
 
 </body>

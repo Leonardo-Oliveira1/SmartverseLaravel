@@ -23,7 +23,6 @@ class CreatePostsTable extends Migration
             $table->string('author_id', 4);
             $table->string('category', 20);
             $table->text('text');
-            $table->string('post_link', 256);
             $table->timestamps();
         });
     }

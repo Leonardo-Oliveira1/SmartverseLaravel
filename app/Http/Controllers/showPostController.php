@@ -12,7 +12,7 @@ class showPostController extends Controller
     public function index(){
 
         return view('home', [
-            'posts' => $this->getPotsInColumn(5),
+            'posts' => $this->getPostsInColumn(5),
             'LeftHighlight' => $this->getLeftMainHighlight(),
             'RightHighlight' => $this->getRightMainHighlight(),
             'MostRead1' => $this->getMostRead(1),
@@ -28,7 +28,7 @@ class showPostController extends Controller
         ]);
     }
 
-    public function getPotsInColumn(){
+    public function getPostsInColumn(){
         $show = DB::table('posts')->orderByRaw('created_at DESC')->get();
 
         return $show;
