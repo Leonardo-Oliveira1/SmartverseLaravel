@@ -26,5 +26,6 @@ Route::get('/destaques', [categoryPagesController::class, 'index']);
 Route::get('/dashboard', function () {
     return view('dashboard.dashboard');
 });
+
 Route::get('/dashboard/create', [CreatePostController::class, 'index']);
 Route::post('/dashboard/submit', [CreatePostController::class, 'index']);

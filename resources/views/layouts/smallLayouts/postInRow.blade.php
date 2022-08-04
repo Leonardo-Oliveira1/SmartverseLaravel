@@ -1,6 +1,6 @@
 @foreach($posts as $post)
 
-    <a href='/view/{{ $post->post_link }}'>
+    <a href='/view/{{ $post->slug }}'>
         <div class='post'>
 
             <div id='postImage'>
