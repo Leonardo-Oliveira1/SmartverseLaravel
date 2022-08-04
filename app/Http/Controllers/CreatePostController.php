@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Str;
 
 class CreatePostController extends Controller
@@ -15,39 +16,53 @@ class CreatePostController extends Controller
 
 
     public function getData(Request $request){
-        //thumb_image
+        $thumb_image = $this->getAndSaveImage($request);
         $title = $request->input('post_title');
         $slug = Str::slug($title);
         $metadescription = $request->input('post_metadescription');
-        //author
-        //author_id
+        $author = $this->getAuthorName();
+        $author_id = $this->getAuthorId();
         $category = $request->input('post_category');
         $text = $request->input('post_text');
         //created_at
 
-        $data = array($title, $metadescription, $category, $text, $slug);
+        $data = array($title, $metadescription, $category, $text, $slug, $author_id, $author, $thumb_image);
 
         return $data;
 
     }
 
-    public function getAuthorInfos(){
+    public function getAuthorName(){
+        $AuthorID = DB::table('users')->where('id', 1)->value('name');
+
+        return $AuthorID;
 
     }
 
-    public function getAndSaveImage(){
+    public function getAuthorId(){
+        $AuthorID = DB::table('users')->where('id', 1)->value('id');
+
+        return $AuthorID;
+
+    }
+
+    public function getAndSaveImage(Request $request){
         //Image Upload
-        if($request->hasFile('post_banner') && $request->file('post_banner')->isValid()){
+        if($request->hasFile('post_banner')){
+            $filenameWithExt = $request->file('post_banner')->getClientOriginalName();
 
-            $requestImage = $request->image;
+            $filename = pathinfo($filenameWithExt, PATHINFO_FILENAME);
 
-            $extension = $requestImage->extension();
+            $extension = $request->file('post_banner')->getClientOriginalExtension();
 
-            $imageName = md5($requestImage->image->getClientOriginalName() . strtotime("now")) . "." . $extension;
-
-            $request->image->move(public_path('posts_thumbs/'), $imageName);
-
+            $fileNameToStore= $filename.'_'.time().'.'.$extension;
+            // Upload Image
+            $path = $request->file('post_banner')->storeAs('public/post_banner', $fileNameToStore);
+        } else {
+            $fileNameToStore = 'noimage.png';
         }
+
+        return $fileNameToStore;
     }
 
     public function store(Request $request){
