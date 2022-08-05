@@ -21,7 +21,6 @@ class CreatePostController extends Controller
         $author_id = $this->getAuthorId();
         $category = $request->input('post_category');
         $text = $request->input('post_text');
-        //created_at
 
         $data = array($title, $metadescription, $category, $text, $slug, $author_id, $author, $thumb_image);
 
@@ -44,7 +43,6 @@ class CreatePostController extends Controller
     }
 
     public function getAndSaveImage(Request $request){
-        //Image Upload
         if($request->hasFile('post_banner')){
             $filenameWithExt = $request->file('post_banner')->getClientOriginalName();
 
@@ -61,8 +59,22 @@ class CreatePostController extends Controller
         return $fileNameToStore;
     }
 
-    public function store(){
-        return view('createPost');
+    public function store(Request $request){
+
+        $data = $this->getData($request);
+
+        DB::table('posts')->insert([
+            'thumb_image' => $data[7],
+            'title' => $data[0],
+            'slug' => $data[4],
+            'metadescription' => $data[1],
+            'author' => $data[6],
+            'author_id' => $data[5],
+            'category' => $data[2],
+            'text' => $data[3],
+        ]);
+
+        return view('home');
     }
 
 }

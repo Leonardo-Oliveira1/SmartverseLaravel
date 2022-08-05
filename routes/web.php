@@ -28,4 +28,4 @@ Route::get('/dashboard', function () {
 });
 
 Route::get('/dashboard/create', [CreatePostController::class, 'index']);
-Route::post('/dashboard/submit', [CreatePostController::class, 'index']);
+Route::post('/dashboard/submit', [CreatePostController::class, 'store']);

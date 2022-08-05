@@ -80,16 +80,5 @@
         });
     </script>
 
-    <div style="color: white">
-        <h1>title: {{ $data[0] }}</h1>
-        <h1>metadescription: {{ $data[1] }}</h1>
-        <h1>category: {{ $data[2] }}</h1>
-        <h1>text: {{ $data[3] }}</h1>
-        <h1>slug: {{ $data[4] }}</h1>
-        <h1>author_id: {{ $data[5] }}</h1>
-        <h1>author: {{ $data[6] }}</h1>
-        <h1>thumb: {{ $data[7] }}</h1>
-    </div>
-
 </body>
 </html>
