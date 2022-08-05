@@ -9,11 +9,8 @@ use Illuminate\Support\Str;
 class CreatePostController extends Controller
 {
     public function index(Request $request){
-
         return view('createPost', ['data' => $this->getData($request)]);
     }
-
-
 
     public function getData(Request $request){
         $thumb_image = $this->getAndSaveImage($request);
@@ -33,9 +30,9 @@ class CreatePostController extends Controller
     }
 
     public function getAuthorName(){
-        $AuthorID = DB::table('users')->where('id', 1)->value('name');
+        $AuthorName = DB::table('users')->where('id', 1)->value('name');
 
-        return $AuthorID;
+        return $AuthorName;
 
     }
 
@@ -64,7 +61,7 @@ class CreatePostController extends Controller
         return $fileNameToStore;
     }
 
-    public function store(Request $request){
+    public function store(){
         return view('createPost');
     }
 
