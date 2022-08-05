@@ -51,13 +51,12 @@ class CreatePostController extends Controller
         if($request->hasFile('post_banner')){
             $filenameWithExt = $request->file('post_banner')->getClientOriginalName();
 
-            $filename = pathinfo($filenameWithExt, PATHINFO_FILENAME);
-
+            $filename = pathinfo(md5($filenameWithExt), PATHINFO_FILENAME);
             $extension = $request->file('post_banner')->getClientOriginalExtension();
-
             $fileNameToStore= $filename.'_'.time().'.'.$extension;
-            // Upload Image
-            $path = $request->file('post_banner')->storeAs('public/post_banner', $fileNameToStore);
+
+            $path = $request->file('post_banner')->storeAs('public/posts_banners', $fileNameToStore);
+
         } else {
             $fileNameToStore = 'noimage.png';
         }

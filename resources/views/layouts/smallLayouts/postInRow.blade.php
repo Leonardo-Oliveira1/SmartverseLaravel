@@ -4,7 +4,7 @@
         <div class='post'>
 
             <div id='postImage'>
-                <img src="{{ asset('posts_banners/'. $post->thumb_image) }}" alt="{{ $post->title }}">
+                <img src="{{ asset('/storage/posts_banners/' . $LeftHighlight->thumb_image) }}" alt="{{ $post->title }}">
             </div>
 
             <div class='postContent'>
