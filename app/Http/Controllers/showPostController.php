@@ -12,7 +12,7 @@ class showPostController extends Controller
     public function index(){
 
         return view('home', [
-            'posts' => $this->getPostsInColumn(5),
+            'posts' => $this->getPostsInColumn(),
             'LeftHighlight' => $this->getLeftMainHighlight(),
             'RightHighlight' => $this->getRightMainHighlight(),
             'MostRead1' => $this->getMostRead(1),
