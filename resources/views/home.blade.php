@@ -11,7 +11,7 @@
         <!--LEFT HIGHLIGHT-->
         <a href='view/{{$LeftHighlight->slug}}/'>
             <div class='Posthighlighted'>
-                <img src="{{ asset('storage/post_banner/' . $LeftHighlight->thumb_image) }}" alt='publicação destacada'>
+                <img src="{{ asset('storage/posts_banners/' . $LeftHighlight->thumb_image) }}" alt='publicação destacada'>
                 <div class='highlightContent'>
                     <h1>{{ $LeftHighlight->title }}</h1>
                 </div>
@@ -21,7 +21,7 @@
         <!--RIGHT HIGHLIGHT-->
         <a href='view/{{$RightHighlight->slug}}/'>
             <div class='Posthighlighted'>
-                <img src="{{ asset('storage/post_banner/' . $RightHighlight->thumb_image) }}" alt='publicação destacada'>
+                <img src="{{ asset('storage/posts_banners/' . $RightHighlight->thumb_image) }}" alt='publicação destacada'>
                 <div class='highlightContent2'>
                     <h1>{{ $RightHighlight->title }}</h1>
                 </div>
