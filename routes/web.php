@@ -16,12 +16,19 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\showPostController;
 use App\Http\Controllers\categoryPagesController;
 use App\Http\Controllers\CreatePostController;
+use App\Http\Controllers\UserLoginController;
+
 
 Route::get('/', [showPostController::class, 'index']);
 
 Route::get('/series', [categoryPagesController::class, 'index']);
 Route::get('/livros', [categoryPagesController::class, 'index']);
 Route::get('/destaques', [categoryPagesController::class, 'index']);
+
+Route::get('/login', [UserLoginController::class, 'index']);
+Route::post('/login/auth', [UserLoginController::class, 'auth']);
+
+
 
 Route::get('/dashboard', function () {
     return view('dashboard.dashboard');

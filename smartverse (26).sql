@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3306
--- Generation Time: Aug 08, 2022 at 11:55 AM
+-- Generation Time: Aug 08, 2022 at 02:58 PM
 -- Server version: 5.7.36
 -- PHP Version: 7.4.26
 
@@ -155,7 +155,7 @@ CREATE TABLE IF NOT EXISTS `users` (
 --
 
 INSERT INTO `users` (`id`, `name`, `choosed_name`, `email`, `password`, `profile_picture`, `isAuthor`, `created_at`, `updated_at`) VALUES
-(1, 'Leonardo Oliveira', 'Leonardo O.', 'oleonardo78@gmail.com', 'leonardo', 'eeuuu.jpg', 1, NULL, NULL),
+(1, 'Leonardo Oliveira', 'Leonardo O.', 'oleonardo78@gmail.com', '123', 'eeuuu.jpg', 1, NULL, NULL),
 (3, 'Geovanna Sthefany', 'Geovanna', 'geovann.sthefany11@gmail.com', '123456789', 'cb67037fedc21955889fc0cc63dac103.jpg', 1, NULL, NULL);
 COMMIT;
 
