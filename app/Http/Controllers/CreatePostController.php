@@ -74,7 +74,7 @@ class CreatePostController extends Controller
             'text' => $data[3],
         ]);
 
-        return view('home');
+        return view('dashboard.dashboard');
     }
 
 }
