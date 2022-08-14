@@ -25,9 +25,6 @@ Route::get('/series', [categoryPagesController::class, 'index']);
 Route::get('/livros', [categoryPagesController::class, 'index']);
 Route::get('/destaques', [categoryPagesController::class, 'index']);
 
-Route::get('/login', [UserLoginController::class, 'index']);
-Route::post('/login/auth', [UserLoginController::class, 'auth']);
-
 
 
 Route::get('/dashboard', function () {
