@@ -37,11 +37,11 @@
             <div class="profile-desc">
               <div class="profile-pic">
                 <div class="count-indicator">
-                  <img class="img-xs rounded-circle " src="../user_profile_pictures/fotodocaba" alt="">
+                  <img class="img-xs rounded-circle " src="{{ asset('css/users_profile_photo/')}}/{{$user->profile_photo_path}}" alt="User profile photo">
                   <span class="count bg-success"></span>
                 </div>
                 <div class="profile-name">
-                  <h5 class="mb-0 font-weight-normal">Fulano</h5>
+                  <h5 class="mb-0 font-weight-normal">{{ $user->name }}</h5>
                   <span>Autor</span>
                 </div>
               </div>
@@ -108,8 +108,8 @@
               <li class="nav-item dropdown">
                 <a class="nav-link" id="profileDropdown" href="#" data-toggle="dropdown">
                   <div class="navbar-profile">
-                    <img class="img-xs rounded-circle" src="..\user_profile_pictures\otafotodocaba" alt="">
-                    <p class="mb-0 d-none d-sm-block navbar-profile-name">nomeescolhido ?></p>
+                    <img class="img-xs rounded-circle" src="{{ asset('css/users_profile_photo/')}}/{{$user->profile_photo_path}}" alt="User profile picture">
+                    <p class="mb-0 d-none d-sm-block navbar-profile-name">{{ $user->name }}</p>
                     <i class="mdi mdi-menu-down d-none d-sm-block"></i>
                   </div>
                 </a>
@@ -119,7 +119,7 @@
                   </a>
                   <div class="dropdown-divider"></div>
 
-                  <a href="?logout=1" class="dropdown-item preview-item">
+                  <a href="/logout" class="dropdown-item preview-item">
                     <div class="preview-thumbnail">
                       <div class="preview-icon bg-dark rounded-circle">
                         <i class="mdi mdi-logout text-danger"></i>
