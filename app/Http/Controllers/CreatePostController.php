@@ -29,14 +29,18 @@ class CreatePostController extends Controller
     }
 
     public function getAuthorName(){
-        $AuthorName = DB::table('users')->where('id', 1)->value('name');
+
+        $user = auth()->user();
+        $AuthorName = DB::table('users')->where('id', $user->id)->value('name');
 
         return $AuthorName;
 
     }
 
     public function getAuthorId(){
-        $AuthorID = DB::table('users')->where('id', 1)->value('id');
+
+        $user = auth()->user();
+        $AuthorID = DB::table('users')->where('id', $user->id)->value('id');
 
         return $AuthorID;
 
@@ -73,6 +77,8 @@ class CreatePostController extends Controller
             'category' => $data[2],
             'text' => $data[3],
         ]);
+
+        sleep(1);
 
         return view('dashboard.dashboard');
     }
