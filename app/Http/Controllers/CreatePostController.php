@@ -13,12 +13,16 @@ class CreatePostController extends Controller
     }
 
     public function getData(Request $request){
+
+        $user = session()->get('user');
+        $user_id = $user[0]['user_id'];
+
         $thumb_image = $this->getAndSaveImage($request);
         $title = $request->input('post_title');
         $slug = Str::slug($title);
         $metadescription = $request->input('post_metadescription');
-        $author = $this->getAuthorName();
-        $author_id = $this->getAuthorId();
+        $author = $this->getAuthorName($user_id);
+        $author_id = $this->getAuthorId($user_id);
         $category = $request->input('post_category');
         $text = $request->input('post_text');
 
@@ -28,19 +32,15 @@ class CreatePostController extends Controller
 
     }
 
-    public function getAuthorName(){
-
-        $user = auth()->user();
-        $AuthorName = DB::table('users')->where('id', $user->id)->value('name');
+    public function getAuthorName($id){
+        $AuthorName = DB::table('users')->where('id', $id)->value('name');
 
         return $AuthorName;
 
     }
 
-    public function getAuthorId(){
-
-        $user = auth()->user();
-        $AuthorID = DB::table('users')->where('id', $user->id)->value('id');
+    public function getAuthorId($id){
+        $AuthorID = DB::table('users')->where('id', $id)->value('id');
 
         return $AuthorID;
 
@@ -78,9 +78,7 @@ class CreatePostController extends Controller
             'text' => $data[3],
         ]);
 
-        sleep(1);
+        return view('home');
 
-        return view('dashboard.dashboard');
     }
-
 }

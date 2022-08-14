@@ -29,3 +29,4 @@ Route::get('/destaques', [categoryPagesController::class, 'index']);
 Route::get('/dashboard', [dashboardController::class, 'index']);
 Route::get('/dashboard/create', [CreatePostController::class, 'index']);
 Route::post('/dashboard/submit', [CreatePostController::class, 'store']);
+
