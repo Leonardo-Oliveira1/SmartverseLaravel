@@ -10,6 +10,9 @@
         <title>@yield('title') - Smartverse</title>
     </head>
 <header>
+
+<body>
+
     <script src="/view/js/hamburger.js"></script>
     <a href="/index.php"><img src="{{ asset('css/img/logo.svg') }}" id="logo" alt="logo" style="margin-top: 4px;"></a>
 
@@ -39,7 +42,6 @@
     </div>
 </header>
 
-<body>
     @yield('content')
 
     <script src="{{ asset('js/hamburger.js') }}"></script>

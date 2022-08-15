@@ -9,7 +9,7 @@
 
     <div class="Postshighlights">
         <!--LEFT HIGHLIGHT-->
-        <a href='view/{{$LeftHighlight->slug}}/'>
+        <a href='post/{{$LeftHighlight->category}}/{{$LeftHighlight->slug}}'>
             <div class='Posthighlighted'>
                 <img src="{{ asset('storage/posts_banners/' . $LeftHighlight->thumb_image) }}" alt='publicação destacada'>
                 <div class='highlightContent'>
@@ -19,7 +19,7 @@
         </a>
 
         <!--RIGHT HIGHLIGHT-->
-        <a href='view/{{$RightHighlight->slug}}/'>
+        <a href='post/{{$RightHighlight->category}}/{{$RightHighlight->slug}}'>
             <div class='Posthighlighted'>
                 <img src="{{ asset('storage/posts_banners/' . $RightHighlight->thumb_image) }}" alt='publicação destacada'>
                 <div class='highlightContent2'>

@@ -18,6 +18,8 @@ use App\Http\Controllers\categoryPagesController;
 use App\Http\Controllers\CreatePostController;
 use App\Http\Controllers\UserLoginController;
 use App\Http\Controllers\dashboardController;
+use App\Http\Controllers\creatingPageController;
+
 
 //Home
 Route::get('/', [showPostController::class, 'index']);
@@ -29,4 +31,7 @@ Route::get('/destaques', [categoryPagesController::class, 'index']);
 Route::get('/dashboard', [dashboardController::class, 'index']);
 Route::get('/dashboard/create', [CreatePostController::class, 'index']);
 Route::post('/dashboard/submit', [CreatePostController::class, 'store']);
+
+//Pages
+Route::get('post/{category}/{slug}', [creatingPageController::class, 'index']);
 

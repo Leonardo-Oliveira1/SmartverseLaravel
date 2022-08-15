@@ -1,7 +1,7 @@
 <x-guest-layout>
     <x-jet-authentication-card>
         <x-slot name="logo">
-        <img src="{{ asset('css/img/logo.svg') }}" style="width:250px" alt="">
+            <img src="{{ asset('css/img/logo.svg') }}" style="width:250px" alt="Smartverse Logo">
         </x-slot>
 
         <x-jet-validation-errors class="mb-4" />
