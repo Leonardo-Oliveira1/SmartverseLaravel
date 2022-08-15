@@ -29,11 +29,9 @@
 
             <label>Categoria</label><br>
             <select required name="post_category">
-                    <option value="Livros" selected>Livros</option>
-                    <option value="Series">Séries</option>
-                    <option value="Filmes">Filmes</option>
-                    <option value="Outros">Outros</option>
-                </select><br><br>
+                <option value="livros" selected>Livros</option>
+                <option value="cinema">Cinema</option>
+            </select><br><br>
 
             <label>Imagem do post</label><br>
             <input type="file" style="padding-top: 20px; padding-bottom: 20px;" id="post_banner" required name="post_banner"><br><br>

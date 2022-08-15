@@ -33,8 +33,8 @@ class categoryPagesController extends Controller
 
         if($request->segments()[0] == 'livros') {
             $category = "Livros";
-        }elseif ($request->segments()[0] == 'series'){
-            $category = "Series";
+        }elseif ($request->segments()[0] == 'cinema'){
+            $category = "Cinema";
         }elseif ($request->segments()[0] == 'destaques'){
             $category = "destaques";
         }else{
