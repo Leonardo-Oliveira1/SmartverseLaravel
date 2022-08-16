@@ -12,20 +12,20 @@ class categoryPagesController extends Controller
 {
     public function index(Request $request){
 
-        $showPosts = new postsController();
+        $posts = new postsController();
 
         return view($request->segments()[0], [
             'posts' => $this->ShowPostByCategory($request),
-            'MostRead1' => $showPosts->getMostRead(1),
-            'MostRead2' => $showPosts->getMostRead(2),
-            'MostRead3' => $showPosts->getMostRead(3),
-            'MostRead4' => $showPosts->getMostRead(4),
-            'MostRead5' => $showPosts->getMostRead(5),
-            'Recommended1' => $showPosts->getRecommended(1),
-            'Recommended2' => $showPosts->getRecommended(2),
-            'Recommended3' => $showPosts->getRecommended(3),
-            'Recommended4' => $showPosts->getRecommended(4),
-            'Recommended5' => $showPosts->getRecommended(5)
+            'MostRead1' => $posts->getMostRead(1),
+            'MostRead2' => $posts->getMostRead(2),
+            'MostRead3' => $posts->getMostRead(3),
+            'MostRead4' => $posts->getMostRead(4),
+            'MostRead5' => $posts->getMostRead(5),
+            'Recommended1' => $posts->getRecommended(1),
+            'Recommended2' => $posts->getRecommended(2),
+            'Recommended3' => $posts->getRecommended(3),
+            'Recommended4' => $posts->getRecommended(4),
+            'Recommended5' => $posts->getRecommended(5)
         ]);
     }
 

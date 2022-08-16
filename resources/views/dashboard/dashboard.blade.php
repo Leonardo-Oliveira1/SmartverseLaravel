@@ -29,8 +29,8 @@
       <!-- partial:partials/_sidebar.html -->
       <nav class="sidebar sidebar-offcanvas" id="sidebar">
         <div class="sidebar-brand-wrapper d-none d-lg-flex align-items-center justify-content-center fixed-top">
-          <a class="sidebar-brand brand-logo" href="dashboard.php"><img src="{{ asset('css/img/logo.svg') }}" alt="logo" /></a>
-          <a class="sidebar-brand brand-logo-mini" href="dashboard.php"><img src="{{ asset('css/img/moon_logo.svg') }}" alt="logo" /></a>
+          <a class="sidebar-brand brand-logo" href="dashboard"><img src="{{ asset('css/img/logo.svg') }}" alt="logo" /></a>
+          <a class="sidebar-brand brand-logo-mini" href="dashboard"><img src="{{ asset('css/img/moon_logo.svg') }}" alt="logo" /></a>
         </div>
         <ul class="nav">
           <li class="nav-item profile">
@@ -51,7 +51,7 @@
             <span class="nav-link">Navegação</span>
           </li>
           <li class="nav-item menu-items">
-            <a class="nav-link" href="dashboard.php">
+            <a class="nav-link" href="dashboard">
               <span class="menu-icon">
                 <i class="mdi mdi-speedometer"></i>
               </span>
@@ -64,7 +64,7 @@
         <!-- partial:partials/_navbar.html -->
         <nav class="navbar p-0 fixed-top d-flex flex-row">
           <div class="navbar-brand-wrapper d-flex d-lg-none align-items-center justify-content-center">
-            <a class="navbar-brand" href="dashboard.php"><img src="{{ asset('css/img/moon_logo.svg') }}" alt="logo" /></a>
+            <a class="navbar-brand" href="dashboard"><img src="{{ asset('css/img/moon_logo.svg') }}" alt="logo" /></a>
           </div>
           <div class="navbar-menu-wrapper flex-grow d-flex align-items-stretch">
             <button class="navbar-toggler navbar-toggler align-self-center" type="button" data-toggle="minimize">
@@ -147,7 +147,7 @@
                     <div class="row">
                       <div class="col-9">
                         <div class="d-flex align-items-center align-self-start">
-                          <h3 class="mb-0">?</h3>
+                          <h3 class="mb-0">{{ $posts->count() }}</h3>
                         </div>
                       </div>
                       <div class="col-3">
@@ -166,7 +166,7 @@
                     <div class="row">
                       <div class="col-9">
                         <div class="d-flex align-items-center align-self-start">
-                          <h3 class="mb-0">??></h3>
+                          <h3 class="mb-0">{{ $users->count() }}</h3>
                         </div>
                       </div>
                       <div class="col-3">
@@ -228,8 +228,28 @@
                     <div class="d-flex flex-row justify-content-between">
                       <h4 class="card-title">Autores</h4>
                     </div>
+                    <?php
+                        setlocale(LC_ALL, 'pt_BR', 'pt_BR.utf-8', 'portuguese');
+                        date_default_timezone_set('America/Sao_Paulo');
+                    ?>
+
+                    @foreach($users as $user)
                     <div class="preview-list">
+                        <div class='preview-item border-bottom'>
+                            <div class='preview-thumbnail'>
+                            <img src="{{ asset('css/users_profile_photo/')}}/{{ $user->profile_photo_path }}" alt='image' class='rounded-circle' />
+                            </div>
+                            <div class='preview-item-content d-flex flex-grow'>
+                            <div class='flex-grow'>
+                                <div class='d-flex d-md-block d-xl-flex justify-content-between'>
+                                <h6 class='preview-subject'>{{ $user->name }}</h6>
+                                </div>
+                                <p class='text-muted'>Desde {{ strftime('%d de %B de %Y', strtotime($user->created_at))}}</p>
+                            </div>
+                            </div>
+                        </div>
                     </div>
+                    @endforeach
                   </div>
                 </div>
               </div>
@@ -238,6 +258,29 @@
                   <div class="card-body">
                     <h4 class="card-title">Posts</h4>
                     <div class="owl-carousel owl-theme full-width owl-carousel-dash portfolio-carousel" id="owl-carousel-basic">
+
+                        @foreach($posts as $post)
+                        <div class='item'>
+                            <a href='/post/{{$post->category}}/{{ $post->slug }}'>
+                                <img src="{{ asset('storage/posts_banners/' . $post->thumb_image) }}" alt=''>
+                                <br>
+                                <p>{{ $post->title }}</p>
+                            </a>
+                        <div class='preview-list w-100'>
+                            <div class='preview-item p-0'>
+                                <div class='preview-item-content d-flex flex-grow'>
+                                    <div class='flex-grow'>
+                                        <div class='d-flex d-md-block d-xl-flex justify-content-between'>
+                                            <h6 class='preview-subject'>{{ $post->author }}</h6>
+                                            <p>{{ date('d/m/Y', strtotime($post->created_at))}}</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                        @endforeach
+
                     </div>
                     <div class="d-flex py-4">
                       <div class="preview-list w-100">
@@ -277,7 +320,47 @@
                           </tr>
                         </thead>
                         <tbody>
-
+                        @foreach($posts as $post)
+                        <tr>
+                            <td style='max-width: 240px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;'>
+                            <span><a href='/post/{{$post->category}}/{{ $post->slug }}'>{{ $post->title }}</a></span>
+                            </td>
+                            <td> {{ date('d/m/Y', strtotime($post->created_at))}} </td>
+                            <td> {{ $post->author }} </td>
+                            <td>
+                            <a href='?editPost={{ $post->id }}'><button class='add btn btn-primary'>✏️</button></a>
+                            <div class='btn-group'>
+                                <button type='button' class='btn btn-secondary dropdown-toggle' data-toggle='dropdown' aria-haspopup='true' aria-expanded='false'>📌
+                                </button>
+                                <div class='dropdown-menu'>
+                                <a class='dropdown-item' href='?setHighlight1={{ $post->id }}'>Destacar no post principal esquerdo</a>
+                                <a class='dropdown-item' href='?setHighlight2={{ $post->id }}'>Destacar no post principal direito</a>
+                            </div>
+                                <div class='btn-group'>
+                                <button type='button' class='btn btn-secondary dropdown-toggle' data-toggle='dropdown' aria-haspopup='true' aria-expanded='false'>🔥
+                                </button>
+                                <div class='dropdown-menu'>
+                                    <a class='dropdown-item' href='?setMostRead1={{ $post->id }}'>Destacar nos mais lidos #1</a>
+                                    <a class='dropdown-item' href='?setMostRead2={{ $post->id }}'>Destacar nos mais lidos #2</a>
+                                    <a class='dropdown-item' href='?setMostRead3={{ $post->id }}'>Destacar nos mais lidos #3</a>
+                                    <a class='dropdown-item' href='?setMostRead4={{ $post->id }}'>Destacar nos mais lidos #4</a>
+                                    <a class='dropdown-item' href='?setMostRead5={{ $post->id }}'>Destacar nos mais lidos #5</a>
+                                </div>
+                            <div class='btn-group'>
+                                <button type='button' class='btn btn-secondary dropdown-toggle' data-toggle='dropdown' aria-haspopup='true' aria-expanded='false'>🌟
+                                </button>
+                                <div class='dropdown-menu'>
+                                    <a class='dropdown-item' href='?setRecommended1={{ $post->id }}'>Destacar nos recomendados #1</a>
+                                    <a class='dropdown-item' href='?setRecommended2={{ $post->id }}'>Destacar nos recomendados #2</a>
+                                    <a class='dropdown-item' href='?setRecommended3={{ $post->id }}'>Destacar nos recomendados #3</a>
+                                    <a class='dropdown-item' href='?setRecommended4={{ $post->id }}'>Destacar nos recomendados #4</a>
+                                    <a class='dropdown-item' href='?setRecommended5={{ $post->id }}'>Destacar nos recomendados #5</a>
+                                </div>
+                            </div>
+                            <a href='?deletePost={{ $post->id }}'><button class='add btn btn-danger'>Deletar post</button></a>
+                            </td>
+                        </tr>
+                        @endforeach
                         </tbody>
                       </table>
                     </div>
