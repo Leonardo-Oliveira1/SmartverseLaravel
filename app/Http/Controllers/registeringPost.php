@@ -6,10 +6,10 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Str;
 
-class CreatePostController extends Controller
+class registeringPost extends Controller
 {
     public function index(Request $request){
-        return view('createPost', ['data' => $this->getData($request)]);
+        return view('registeringPost', ['data' => $this->getData($request)]);
     }
 
     public function getData(Request $request){

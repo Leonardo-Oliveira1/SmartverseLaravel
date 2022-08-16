@@ -26,7 +26,7 @@
             <nav>
                 <ul>
                     <a href="/livros"><li>Livros</li></a>
-                    <a href="/cinema"><li>Cinema</li></a>
+                    <a href="/series"><li>Séries</li></a>
                     <a href="/destaques"><li>Destaques</li></a>
                 </ul>
             </nav>
@@ -75,7 +75,7 @@
         </div>
 
         <div class='text'>
-            {!! $post->text !!}
+            {{ $post->text }}
         </div>
 
 

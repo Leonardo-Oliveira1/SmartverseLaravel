@@ -7,7 +7,7 @@ use Illuminate\Support\Facades\DB;
 
 use App\Models\Posts;
 
-class showPostController extends Controller
+class postsController extends Controller
 {
     public function index(){
 
