@@ -14,7 +14,7 @@ class categoryPagesController extends Controller
 
         $posts = new postsController();
 
-        return view($request->segments()[0], [
+        return view('categories/'.$request->segments()[0], [
             'posts' => $this->ShowPostByCategory($request),
             'MostRead1' => $posts->getMostRead(1),
             'MostRead2' => $posts->getMostRead(2),

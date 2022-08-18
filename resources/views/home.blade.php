@@ -33,7 +33,7 @@
     <div class="content">
 
         <div class="posts">
-            @include('layouts.smallLayouts.postInRow')
+            @include('layouts.smallLayouts.postInColumn')
         </div>
 
         <div class="CTAs">

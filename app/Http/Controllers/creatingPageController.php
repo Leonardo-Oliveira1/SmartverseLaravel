@@ -14,7 +14,7 @@ class creatingPageController extends Controller
         $postID = $this->getPost($slug);
         $userProfilePhoto = $this->getAuthorProfilePhoto($slug);
 
-        return view('creatingPage', ['post' => $postID, 'authorPhoto' => $userProfilePhoto]);
+        return view('postPage', ['post' => $postID, 'authorPhoto' => $userProfilePhoto]);
     }
 
     public function getPost($slug){
