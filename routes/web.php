@@ -13,7 +13,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-use App\Http\Controllers\postsController;
+use App\Http\Controllers\homeController;
 use App\Http\Controllers\categoryPagesController;
 use App\Http\Controllers\registeringPost;
 use App\Http\Controllers\UserLoginController;
@@ -22,7 +22,7 @@ use App\Http\Controllers\creatingPageController;
 
 
 //Home
-Route::get('/', [postsController::class, 'index']);
+Route::get('/', [homeController::class, 'index']);
 Route::get('/cinema', [categoryPagesController::class, 'index']);
 Route::get('/livros', [categoryPagesController::class, 'index']);
 Route::get('/destaques', [categoryPagesController::class, 'index']);

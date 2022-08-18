@@ -66,7 +66,7 @@
         </div>
 
         <div class='posts' style='margin-left: -1%;'>
-        Seemore
+            @include('layouts.smallLayouts.CTAsInColumn')
         </div>
     </div>
 

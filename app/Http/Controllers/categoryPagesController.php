@@ -6,13 +6,13 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
 use App\Models\Posts;
-use App\Http\Controllers\postsController;
+use App\Http\Controllers\homeController;
 
 class categoryPagesController extends Controller
 {
     public function index(Request $request){
 
-        $posts = new postsController();
+        $posts = new homeController();
 
         return view('categories/'.$request->segments()[0], [
             'posts' => $this->ShowPostByCategory($request),
