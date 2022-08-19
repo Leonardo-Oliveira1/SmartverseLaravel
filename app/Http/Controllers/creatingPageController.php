@@ -19,14 +19,21 @@ class creatingPageController extends Controller
         $postID = $this->getPost($slug);
         $userProfilePhoto = $this->getAuthorProfilePhoto($slug);
 
+
+        $CTAsArray = array(
+            "1" => $CTAs->getMostRead(1),
+            "2" => $CTAs->getMostRead(2),
+            "3" => $CTAs->getMostRead(3),
+            "4" => $CTAs->getRecommended(1),
+            "5" => $CTAs->getRecommended(2),
+            "6" => $CTAs->getRecommended(3),
+        );
+
+
         return view('postPage', [
             'post' => $postID,
             'authorPhoto' => $userProfilePhoto,
-            'MostRead1' => $CTAs->getMostRead(1),
-            'MostRead2' => $CTAs->getMostRead(2),
-            'MostRead3' => $CTAs->getMostRead(3),
-            'Recommended1' => $CTAs->getRecommended(1),
-            'Recommended2' => $CTAs->getRecommended(2),
+            'CTA' => $CTAsArray
         ]);
     }
 
