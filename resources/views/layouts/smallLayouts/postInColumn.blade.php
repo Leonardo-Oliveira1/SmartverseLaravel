@@ -1,6 +1,6 @@
 @foreach($posts as $post)
 
-<a href='post/{{ $post->category }}/{{ $post->slug }}'>
+<a href='/post/{{ $post->category }}/{{ $post->slug }}'>
     <div class='post'>
 
         <div id='postImage'>

@@ -24,7 +24,7 @@ use App\Http\Controllers\searchController;
 
 //Home
 Route::get('/', [homeController::class, 'index']);
-Route::get('/{category}', [categoryPagesController::class, 'index']);
+Route::get('categoria/{category}', [categoryPagesController::class, 'index']);
 
 //Dashboard
 Route::get('/dashboard', [dashboardController::class, 'index']);
@@ -33,5 +33,6 @@ Route::post('/dashboard/submit', [registeringPost::class, 'store']);
 
 //Pages
 Route::get('post/{category}/{slug}', [creatingPageController::class, 'index']);
-//Route::get('/', [searchController::class, 'index']);
+Route::get('/buscar', [searchController::class, 'index']);
+
 
