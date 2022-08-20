@@ -11,7 +11,7 @@ use App\Http\Controllers\CTAsController;
 
 class categoryPagesController extends Controller
 {
-    public function index(Request $request){
+    public function index($category){
 
         $posts = new homeController();
         $CTAs = new CTAsController();
@@ -29,8 +29,8 @@ class categoryPagesController extends Controller
             "10" => $CTAs->getRecommended(5)
         );
 
-        return view('categories/'.$request->segments()[0], [
-            'posts' => $this->ShowPostByCategory($request),
+        return view('categories/'.$category, [
+            'posts' => $this->ShowPostByCategory($category),
             'CTA' => $CTAsArray,
             'MostRead1' => $CTAs->getMostRead(1),
             'MostRead2' => $CTAs->getMostRead(2),
@@ -45,18 +45,7 @@ class categoryPagesController extends Controller
         ]);
     }
 
-    public function ShowPostByCategory($request){
-
-        if($request->segments()[0] == 'livros') {
-            $category = "Livros";
-        }elseif ($request->segments()[0] == 'cinema'){
-            $category = "Cinema";
-        }elseif ($request->segments()[0] == 'destaques'){
-            $category = "destaques";
-        }else{
-            return view('home');
-        }
-
+    public function ShowPostByCategory($category){
         $posts = DB::table('posts')->where('category', $category)->orderByRaw('created_at DESC')->get();
 
         return $posts;

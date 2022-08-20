@@ -9,12 +9,9 @@ use App\Http\Controllers\CTAsController;
 
 class creatingPageController extends Controller
 {
-    public function index(Request $request){
+    public function index($category, $slug){
 
         $CTAs = new CTAsController();
-
-        $category = $request->segments()[1];
-        $slug = $request->segments()[2];
 
         $postID = $this->getPost($slug);
         $userProfilePhoto = $this->getAuthorProfilePhoto($slug);

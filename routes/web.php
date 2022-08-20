@@ -19,13 +19,12 @@ use App\Http\Controllers\registeringPost;
 use App\Http\Controllers\UserLoginController;
 use App\Http\Controllers\dashboardController;
 use App\Http\Controllers\creatingPageController;
+use App\Http\Controllers\searchController;
 
 
 //Home
 Route::get('/', [homeController::class, 'index']);
-Route::get('/cinema', [categoryPagesController::class, 'index']);
-Route::get('/livros', [categoryPagesController::class, 'index']);
-Route::get('/destaques', [categoryPagesController::class, 'index']);
+Route::get('/{category}', [categoryPagesController::class, 'index']);
 
 //Dashboard
 Route::get('/dashboard', [dashboardController::class, 'index']);
@@ -34,4 +33,5 @@ Route::post('/dashboard/submit', [registeringPost::class, 'store']);
 
 //Pages
 Route::get('post/{category}/{slug}', [creatingPageController::class, 'index']);
+//Route::get('/', [searchController::class, 'index']);
 
