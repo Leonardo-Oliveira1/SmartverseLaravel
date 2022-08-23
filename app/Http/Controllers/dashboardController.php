@@ -3,14 +3,14 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Http\Controllers\postsController;
+use App\Http\Controllers\homeController;
 use App\Http\Controllers\usersController;
 
 class dashboardController extends Controller
 {
     public function index(Request $request){
 
-        $posts = new postsController();
+        $posts = new homeController();
         $users = new usersController();
 
         if(auth()->user() == null){
