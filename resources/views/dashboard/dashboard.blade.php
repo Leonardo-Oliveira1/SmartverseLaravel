@@ -93,6 +93,16 @@
                       <p class="preview-subject ellipsis mb-1">Criar novo post</p>
                     </div>
                   </a>
+                  <a href="/dashboard/create" class="dropdown-item preview-item">
+                    <div class="preview-thumbnail">
+                      <div class="preview-icon bg-dark rounded-circle">
+                        <i class="mdi mdi-animation text-primary"></i>
+                      </div>
+                    </div>
+                    <div class="preview-item-content">
+                      <p class="preview-subject ellipsis mb-1">Ações com os posts</p>
+                    </div>
+                  </a>
                   <div class="dropdown-divider"></div>
                   <a href="/index.php" class="dropdown-item preview-item">
                     <div class="preview-thumbnail">
