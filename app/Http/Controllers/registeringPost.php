@@ -15,7 +15,7 @@ class registeringPost extends Controller
     public function getData(Request $request){
 
         $user = session()->get('user');
-        $user_id = $user[0]['user_id'];
+        $user_id = $user[0][0];
 
         $thumb_image = $this->getAndSaveImage($request);
         $title = $request->input('post_title');

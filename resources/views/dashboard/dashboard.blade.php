@@ -93,7 +93,7 @@
                       <p class="preview-subject ellipsis mb-1">Criar novo post</p>
                     </div>
                   </a>
-                  <a href="/dashboard/create" class="dropdown-item preview-item">
+                  <a href="/dashboard/posts" class="dropdown-item preview-item">
                     <div class="preview-thumbnail">
                       <div class="preview-icon bg-dark rounded-circle">
                         <i class="mdi mdi-animation text-primary"></i>

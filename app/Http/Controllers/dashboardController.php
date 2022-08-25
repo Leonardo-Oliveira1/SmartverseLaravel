@@ -19,7 +19,7 @@ class dashboardController extends Controller
             $user = auth()->user();
 
             $request->session()->put('user', [
-                ['user_id' => $user->id]
+                [$user->id, $user->name, $user->profile_photo_path]
             ]);
         }
 

@@ -20,6 +20,7 @@ use App\Http\Controllers\UserLoginController;
 use App\Http\Controllers\dashboardController;
 use App\Http\Controllers\creatingPageController;
 use App\Http\Controllers\searchController;
+use App\Http\Controllers\postsDashboardController;
 
 
 //Home
@@ -30,6 +31,7 @@ Route::get('categoria/{category}', [categoryPagesController::class, 'index']);
 Route::get('/dashboard', [dashboardController::class, 'index']);
 Route::get('/dashboard/create', [registeringPost::class, 'index']);
 Route::post('/dashboard/submit', [registeringPost::class, 'store']);
+Route::get('/dashboard/posts', [postsDashboardController::class, 'index']);
 
 //Pages
 Route::get('post/{category}/{slug}', [creatingPageController::class, 'index']);
