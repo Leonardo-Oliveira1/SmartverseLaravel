@@ -1,7 +1,7 @@
 <nav class="sidebar sidebar-offcanvas" id="sidebar">
 <div class="sidebar-brand-wrapper d-none d-lg-flex align-items-center justify-content-center fixed-top">
-    <a class="sidebar-brand brand-logo" style="cursor: default;"><img src="{{ asset('css/img/logo.svg') }}" alt="logo" /></a>
-    <a class="sidebar-brand brand-logo-mini" style="cursor: default;"><img src="{{ asset('css/img/moon_logo.svg') }}" alt="logo" /></a>
+    <a class="sidebar-brand brand-logo" href="/dashboard"><img src="{{ asset('css/img/logo.svg') }}" alt="logo" /></a>
+    <a class="sidebar-brand brand-logo-mini" href="/dashboard"><img src="{{ asset('css/img/moon_logo.svg') }}" alt="logo" /></a>
 </div>
 <ul class="nav">
     <li class="nav-item profile">
@@ -22,7 +22,7 @@
     <span class="nav-link">Navegação</span>
     </li>
     <li class="nav-item menu-items">
-    <a class="nav-link" href="dashboard">
+    <a href="/dashboard" class="nav-link">
         <span class="menu-icon">
         <i class="mdi mdi-speedometer"></i>
         </span>

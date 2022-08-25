@@ -23,6 +23,13 @@ class dashboardController extends Controller
             ]);
         }
 
-        return view('dashboard.dashboard', ['user' => $user, 'posts' => $posts->getPostsInColumn(), 'users' => $users->getUserData()]);
+
+        $user = session()->get('user');
+
+        $user_id = $user[0][0];
+        $user_name = $user[0][1];
+        $user_profile_photo_path = $user[0][2];
+
+        return view('dashboard.dashboard', ['posts' => $posts->getPostsInColumn(), 'users' => $users->getUserData(), 'user_id' => $user_id, 'user_name' => $user_name, 'user_profile_photo_path' => $user_profile_photo_path]);
     }
 }
