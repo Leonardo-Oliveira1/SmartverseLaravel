@@ -33,15 +33,15 @@
         <div class='share'>
             <img width='25' height='25'style='padding-right: 10px;' src="{{ asset('css/img/icons/share.svg') }}" alt='Compartilhar'>
 
-            <a href='https://www.facebook.com/sharer/sharer.php?u=smartverse.com.br/view/$link'>
+            <a href='https://www.facebook.com/sharer/sharer.php?u=smartverse.com.br/post/{{ $post->category }}/{{ $post->slug }}'>
                 <img width='25' height='25'style='padding-right: 10px;' src="{{ asset('css/img/icons/facebook.svg') }}" alt='Compartilhar no Facebook'>
             </a>
 
-            <a href='https://api.whatsapp.com/send?text=www.smartverse.com.br/view/$link'>
+            <a href='https://api.whatsapp.com/send?text=www.smartverse.com.br/post/{{ $post->category }}/{{ $post->slug }}'>
                 <img width='33' height='33' src="{{ asset('css/img/icons/whatsapp.svg') }}" alt='Compartilhar no WhatsApp'>
             </a>
 
-            <a href='https://twitter.com/intent/tweet?url=www.smartverse.com.br/view/$link'>
+            <a href='https://twitter.com/intent/tweet?url=www.smartverse.com.br/post/{{ $post->category }}/{{ $post->slug }}'>
                 <img width='38' height='38' src="{{ asset('css/img/icons/twitter.svg') }}" alt='Compartilhar no Twitter'>
             </a>
         </div>
