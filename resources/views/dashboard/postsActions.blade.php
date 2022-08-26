@@ -24,13 +24,13 @@
                 <td> {{ date('d/m/Y', strtotime($post->created_at))}} </td>
                 <td> {{ $post->author }} </td>
                 <td>
-                <a href='?editPost={{ $post->id }}'><button class='add btn btn-primary'>✏️</button></a>
+                <a href='editPost={{ $post->id }}'><button class='add btn btn-primary'>✏️</button></a>
                 <div class='btn-group'>
                     <button type='button' class='btn btn-secondary dropdown-toggle' data-toggle='dropdown' aria-haspopup='true' aria-expanded='false'>📌
                     </button>
                     <div class='dropdown-menu'>
-                    <a class='dropdown-item' href='?setHighlight1={{ $post->id }}'>Destacar no post principal esquerdo</a>
-                    <a class='dropdown-item' href='?setHighlight2={{ $post->id }}'>Destacar no post principal direito</a>
+                    <a class='dropdown-item' href='?LeftHighlight={{ $post->id }}'>Destacar no post principal esquerdo</a>
+                    <a class='dropdown-item' href='?RightHighlight={{ $post->id }}'>Destacar no post principal direito</a>
                 </div>
                     <div class='btn-group'>
                     <button type='button' class='btn btn-secondary dropdown-toggle' data-toggle='dropdown' aria-haspopup='true' aria-expanded='false'>🔥
@@ -53,7 +53,7 @@
                         <a class='dropdown-item' href='?setRecommended5={{ $post->id }}'>Destacar nos recomendados #5</a>
                     </div>
                 </div>
-                <a href='?deletePost={{ $post->id }}'><button class='add btn btn-danger'>Deletar post</button></a>
+                <a href='?delete={{ $post->id }}'><button class='add btn btn-danger'>Deletar post</button></a>
                 </td>
             </tr>
             @endforeach

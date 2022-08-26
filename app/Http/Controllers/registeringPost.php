@@ -78,7 +78,7 @@ class registeringPost extends Controller
             'text' => $data[3],
         ]);
 
-        return view('home');
+        return redirect('post/'.$data[2].'/'.$data[4]);
 
     }
 }
