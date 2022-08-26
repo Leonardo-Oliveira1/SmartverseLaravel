@@ -36,7 +36,7 @@
 
             <textarea id="post_text" required name="post_text">{!! $post->text !!}</textarea>
 
-            <input type="submit" value="Publicar post">
+            <input type="submit" value="Editar post">
             </form>
         </div>
 
