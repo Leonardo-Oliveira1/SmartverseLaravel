@@ -1,5 +1,26 @@
 @extends('dashboard.layouts.mainLayout')
 @section('content')
+<script>
+    function popup(post_id, post_title, primitiveAction, pastVerb, URL){
+    swal({
+
+        title: 'Realmente deseja ' + primitiveAction + ' a postagem ' + post_title +'?',
+        icon: 'warning',
+        buttons: true,
+        dangerMode: false,
+    })
+    .then((willDelete) => {
+        if (willDelete) {
+        setTimeout(function() {
+            window.location.href = '?'+ URL + '=' + post_id;
+        }, 1000);
+        swal('Prontinho! A postagem foi ' + pastVerb + ' com sucesso!', {
+            icon: 'success',
+        });
+        }
+    });
+}
+</script>
 
 <div class="row">
     <div class="col-12 grid-margin">
@@ -29,31 +50,27 @@
                     <button type='button' class='btn btn-secondary dropdown-toggle' data-toggle='dropdown' aria-haspopup='true' aria-expanded='false'>📌
                     </button>
                     <div class='dropdown-menu'>
-                    <a class='dropdown-item' href='?LeftHighlight={{ $post->id }}'>Destacar no post principal esquerdo</a>
-                    <a class='dropdown-item' href='?RightHighlight={{ $post->id }}'>Destacar no post principal direito</a>
+                    <a class='dropdown-item' onclick="popup({{ $post->id }}, '{{ $post->title }}', 'fixar', 'fixada', 'LeftHighlight')">Destacar no post principal esquerdo</a>
+                    <a class='dropdown-item' onclick="popup({{ $post->id }}, '{{ $post->title }}', 'fixar', 'fixada', 'RightHighlight')">Destacar no post principal direito</a>
                 </div>
                     <div class='btn-group'>
                     <button type='button' class='btn btn-secondary dropdown-toggle' data-toggle='dropdown' aria-haspopup='true' aria-expanded='false'>🔥
                     </button>
                     <div class='dropdown-menu'>
-                        <a class='dropdown-item' href='?setMostRead1={{ $post->id }}'>Destacar nos mais lidos #1</a>
-                        <a class='dropdown-item' href='?setMostRead2={{ $post->id }}'>Destacar nos mais lidos #2</a>
-                        <a class='dropdown-item' href='?setMostRead3={{ $post->id }}'>Destacar nos mais lidos #3</a>
-                        <a class='dropdown-item' href='?setMostRead4={{ $post->id }}'>Destacar nos mais lidos #4</a>
-                        <a class='dropdown-item' href='?setMostRead5={{ $post->id }}'>Destacar nos mais lidos #5</a>
+                        @for ($i = 1; $i <= 5; $i++)
+                            <a class='dropdown-item' onclick="popup({{ $post->id }}, '{{ $post->title }}', 'destacar', 'destacada', 'setMostRead{{$i}}')">Destacar nos mais lidos #{{ $i }}</a>
+                        @endfor
                     </div>
                 <div class='btn-group'>
                     <button type='button' class='btn btn-secondary dropdown-toggle' data-toggle='dropdown' aria-haspopup='true' aria-expanded='false'>🌟
                     </button>
                     <div class='dropdown-menu'>
-                        <a class='dropdown-item' href='?setRecommended1={{ $post->id }}'>Destacar nos recomendados #1</a>
-                        <a class='dropdown-item' href='?setRecommended2={{ $post->id }}'>Destacar nos recomendados #2</a>
-                        <a class='dropdown-item' href='?setRecommended3={{ $post->id }}'>Destacar nos recomendados #3</a>
-                        <a class='dropdown-item' href='?setRecommended4={{ $post->id }}'>Destacar nos recomendados #4</a>
-                        <a class='dropdown-item' href='?setRecommended5={{ $post->id }}'>Destacar nos recomendados #5</a>
+                        @for ($i = 1; $i <= 5; $i++)
+                            <a class='dropdown-item' onclick="popup({{ $post->id }}, '{{ $post->title }}', 'destacar', 'destacada', 'setRecommended1{{$i}}')">Destacar nos recomendados #{{ $i }}</a>
+                        @endfor
                     </div>
                 </div>
-                <a href='?delete={{ $post->id }}'><button class='add btn btn-danger'>Deletar post</button></a>
+                <a onclick="popup({{ $post->id }}, '{{ $post->title }}', 'deletar', 'deletada', 'delete')"><button class='add btn btn-danger'>Deletar post</button></a>
                 </td>
             </tr>
             @endforeach
