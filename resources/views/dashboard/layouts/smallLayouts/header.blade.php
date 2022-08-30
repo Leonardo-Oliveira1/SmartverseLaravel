@@ -40,7 +40,7 @@
             </div>
             </a>
             <div class="dropdown-divider"></div>
-            <a href="/index.php" class="dropdown-item preview-item">
+            <a href="/" class="dropdown-item preview-item">
             <div class="preview-thumbnail">
                 <div class="preview-icon bg-dark rounded-circle">
                 <i class="mdi mdi-web text-primary"></i>

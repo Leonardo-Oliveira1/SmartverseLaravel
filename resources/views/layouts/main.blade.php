@@ -7,7 +7,7 @@
         <link rel="icon" type="image/x-icon" href="{{ asset('css/img/moon_logo.svg') }}">
         <meta name="description" content="@yield('metadescription')">
         <link href="{{ asset('css/main.css') }}" rel="stylesheet">
-        <title>@yield('title') - Smartverse</title>
+        <title>@yield('title') - {{ config('app.name') }}</title>
     </head>
 
     <body>

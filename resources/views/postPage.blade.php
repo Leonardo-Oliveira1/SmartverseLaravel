@@ -7,7 +7,7 @@
         <link rel="icon" type="image/x-icon" href="{{ asset('css/img/moon_logo.svg') }}">
         <meta name="description" content="{{ $post->metadescription }}">
         <link href="{{ asset('css/main.css') }}" rel="stylesheet">
-        <title>{{ $post->title }} - Smartverse</title>
+        <title>{{ $post->title }} - {{ config('app.name') }}</title>
     </head>
 
 <body>
@@ -56,7 +56,7 @@
         </div>
 
         <div class='facebookdiv'>
-            <div class='fb-comments' data-href='www.smartverse.com.br/view/$link' data-width='100%' data-numposts='5'></div>
+            <div class='fb-comments' data-href='www.smartverse.com.br/post/{{ $post->category }}/{{ $post->slug }}' data-width='100%' data-numposts='5'></div>
         </div>
 
         <div class='seeMoreLines'>

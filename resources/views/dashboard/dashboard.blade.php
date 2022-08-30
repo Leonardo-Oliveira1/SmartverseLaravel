@@ -147,7 +147,7 @@
             <div class="preview-list w-100">
             </div>
         </div>
-        <p class="text-muted">Algumas postagens do Smartverse. </p>
+        <p class="text-muted">Algumas postagens do {{ config('app.name') }}. </p>
         <div class="progress progress-md portfolio-progress">
             <div class="progress-bar bg-success" role="progressbar" style="width: 100%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
         </div>

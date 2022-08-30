@@ -1,7 +1,12 @@
 
 @extends('layouts.main')
-@section('metadescription', 'Bem-vindo ao Smartverse. Conheça o nosso blog e veja os últimos tópicos sobre o universo de séries, filmes e livros.')
+
+@section('metadescription')
+Bem-vindo ao {{ config('app.name') }}. Conheça o nosso blog e veja os últimos tópicos sobre o universo de séries, filmes e livros.
+@endsection
+
 @section('title', 'Home')
+
 @section('content')
 <div class="container">
 

@@ -1,7 +1,10 @@
 @extends('layouts.main')
-@section('metadescription', 'Bem-vindo ao Smartverse. Conheça o nosso blog e veja os últimos tópicos sobre o universo de séries, filmes e livros.')
-@section('content')
 
+@section('metadescription')
+Bem-vindo ao {{ config('app.name') }}. Conheça o nosso blog e veja os últimos tópicos sobre o universo de séries, filmes e livros.
+@endsection
+
+@section('content')
 <div class="container">
 
     <h1 id="categoryTitle"><center>Bem-vindo(a) à categoria de <span id="highlightText">@yield('category')</span></h1>
