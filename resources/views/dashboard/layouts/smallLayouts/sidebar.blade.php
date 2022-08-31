@@ -28,5 +28,20 @@
         </span>
         <span class="menu-title">Dashboard</span>
     </a>
+    <li class="nav-item menu-items">
+        <a class="nav-link" href="/dashboard/create">
+            <span class="menu-icon">
+            <i class="mdi mdi-file-outline"></i>
+            </span>
+            <span class="menu-title">Criar postagem</span>
+        </a>
+    </li>
+    <li class="nav-item menu-items">
+        <a class="nav-link" href="/dashboard/posts/">
+            <span class="menu-icon">
+            <i class="mdi mdi-animation"></i>
+            </span>
+            <span class="menu-title">Ações com os posts</span>
+        </a>
     </li>
 </nav>
