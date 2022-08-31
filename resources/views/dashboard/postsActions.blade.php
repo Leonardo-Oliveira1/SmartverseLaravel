@@ -12,7 +12,7 @@
     .then((willDelete) => {
         if (willDelete) {
         setTimeout(function() {
-            window.location.href = '?'+ URL + '=' + post_id;
+            window.location.href = '?' + 'action=' + URL + "&id=" + post_id;
         }, 1000);
         swal('Prontinho! A postagem foi ' + pastVerb + ' com sucesso!', {
             icon: 'success',
@@ -45,7 +45,7 @@
                 <td> {{ date('d/m/Y', strtotime($post->created_at))}} </td>
                 <td> {{ $post->author }} </td>
                 <td>
-                <a href='editPost={{ $post->id }}'><button class='add btn btn-primary'>✏️</button></a>
+                <a href='/dashboard/editPost={{ $post->id }}'><button class='add btn btn-primary'>✏️</button></a>
                 <div class='btn-group'>
                     <button type='button' class='btn btn-secondary dropdown-toggle' data-toggle='dropdown' aria-haspopup='true' aria-expanded='false'>📌
                     </button>
@@ -58,7 +58,7 @@
                     </button>
                     <div class='dropdown-menu'>
                         @for ($i = 1; $i <= 5; $i++)
-                            <a class='dropdown-item' onclick="popup({{ $post->id }}, '{{ $post->title }}', 'destacar', 'destacada', 'setMostRead{{$i}}')">Destacar nos mais lidos #{{ $i }}</a>
+                            <a class='dropdown-item' onclick="popup({{ $post->id }}, '{{ $post->title }}', 'destacar', 'destacada', 'setMostRead&number={{$i}}')">Destacar nos mais lidos #{{ $i }}</a>
                         @endfor
                     </div>
                 <div class='btn-group'>
@@ -66,7 +66,7 @@
                     </button>
                     <div class='dropdown-menu'>
                         @for ($i = 1; $i <= 5; $i++)
-                            <a class='dropdown-item' onclick="popup({{ $post->id }}, '{{ $post->title }}', 'destacar', 'destacada', 'setRecommended1{{$i}}')">Destacar nos recomendados #{{ $i }}</a>
+                            <a class='dropdown-item' onclick="popup({{ $post->id }}, '{{ $post->title }}', 'destacar', 'destacada', 'setRecommended&number={{$i}}')">Destacar nos recomendados #{{ $i }}</a>
                         @endfor
                     </div>
                 </div>
