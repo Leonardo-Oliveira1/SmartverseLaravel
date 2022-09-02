@@ -14,6 +14,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 use App\Http\Controllers\homeController;
+use App\Http\Controllers\infiniteScrollDataController;
 use App\Http\Controllers\categoryPagesController;
 use App\Http\Controllers\creatingPageController;
 use App\Http\Controllers\searchController;
@@ -28,6 +29,8 @@ use App\Http\Controllers\editPostController;
 
 //Home
 Route::get('/', [homeController::class, 'index']);
+Route::get('/infinite_scroll', [infiniteScrollDataController::class, 'index']);
+
 Route::get('categoria/{category}', [categoryPagesController::class, 'index']);
 
 //Dashboard

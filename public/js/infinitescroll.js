@@ -5,10 +5,10 @@ $(document).ready(function(){
     $(window).scroll(function() {
 
         if($(window).scrollTop() >= $(document).height() - $(window).height()){
-            
+
             $.ajax({
                 type: "GET",
-                url: "/SMARTverse/view/get_data.php",
+                url: "/infinite_scroll",
                 data: {
                     'offset': flag,
                     'limit': 3

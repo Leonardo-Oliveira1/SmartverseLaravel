@@ -36,7 +36,7 @@ class homeController extends Controller
     }
 
     public function getPostsInColumn(){
-        $show = DB::table('posts')->orderByRaw('created_at DESC')->get();
+        $show = DB::table('posts')->orderByRaw('created_at DESC')->paginate(6);
 
         return $show;
     }
