@@ -21,7 +21,15 @@ class postsDashboardController extends Controller
 
         $this->getURL();
 
-        return view('dashboard.postsActions', ['posts' => $posts->getPostsInColumn(), 'user_id' => $user_id, 'user_name' => $user_name, 'user_profile_photo_path' => $user_profile_photo_path]);
+        $query = request('q');
+        $postsFiltered = DB::table('posts')->where('title', 'LIKE', '%'.$query.'%')->orderByRaw('created_at DESC')->get();
+
+        if(isset($query)){
+            return view('dashboard.postsActions', ['posts' => $postsFiltered, 'query' => $query, 'user_id' => $user_id, 'user_name' => $user_name, 'user_profile_photo_path' => $user_profile_photo_path]);
+        } else {
+            return view('dashboard.postsActions', ['posts' => $posts->getPostsInColumn(), 'query' => $user_id, 'user_name' => $user_name, 'user_profile_photo_path' => $user_profile_photo_path]);
+        }
+
     }
 
     public function getURL(){

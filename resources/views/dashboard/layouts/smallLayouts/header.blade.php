@@ -8,7 +8,7 @@
     </button>
     <ul class="navbar-nav w-100">
         <li class="nav-item w-100">
-        <form action="search.php" method="GET" class="nav-link mt-2 mt-md-0 d-none d-lg-flex search">
+        <form action="/dashboard/posts" method="GET" class="nav-link mt-2 mt-md-0 d-none d-lg-flex search">
             <input type="text" class="form-control" placeholder="Pesquisar posts" name="q">
         </form>
         </li>
