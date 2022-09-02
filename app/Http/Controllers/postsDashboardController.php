@@ -13,16 +13,17 @@ class postsDashboardController extends Controller
 
         $posts = new homeController();
 
-        $user = session()->get('user');
+        //filter if search
+        $query = request('q');
+        $postsFiltered = DB::table('posts')->where('title', 'LIKE', '%'.$query.'%')->orderByRaw('created_at DESC')->get();
 
+
+        $user = session()->get('user');
         $user_id = $user[0][0];
         $user_name = $user[0][1];
         $user_profile_photo_path = $user[0][2];
 
-        $this->getURL();
-
-        $query = request('q');
-        $postsFiltered = DB::table('posts')->where('title', 'LIKE', '%'.$query.'%')->orderByRaw('created_at DESC')->get();
+        $this->getURLAction();
 
         if(isset($query)){
             return view('dashboard.postsActions', ['posts' => $postsFiltered, 'query' => $query, 'user_id' => $user_id, 'user_name' => $user_name, 'user_profile_photo_path' => $user_profile_photo_path]);
@@ -32,7 +33,7 @@ class postsDashboardController extends Controller
 
     }
 
-    public function getURL(){
+    public function getURLAction(){
         $action = request("action");
         $number = request("number");
         $id = request("id");
