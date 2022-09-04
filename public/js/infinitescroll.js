@@ -11,11 +11,11 @@ $(document).ready(function(){
                 url: "/infinite_scroll",
                 data: {
                     'offset': flag,
-                    'limit': 3
+                    'limit': 6
                 },
                 success: function(data){
                     $('.posts').append(data);
-                    flag += 5;
+                    flag += 6;
                 }
             });
 

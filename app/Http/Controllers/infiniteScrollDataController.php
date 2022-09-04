@@ -11,18 +11,18 @@ class infiniteScrollDataController extends Controller
 
         $postsHome = new homeController();
 
-        if(isset($_GET['offset'])){
+        if(isset($_GET['offset']) && isset($_GET['limit'])){
             $offset = $_GET['offset'];
+            $limit = $_GET['limit'];
 
-            echo "<script>console.log('offset: $offset')</script>";
-
-            $posts = $postsHome->getPostsInColumn($offset, 6);
+            $posts = $postsHome->getPostsInColumn($offset, $limit);
 
             foreach ($posts as $post) {
+
                 $date = date('d/m/Y', strtotime($post->created_at));
                 $img = asset('storage/posts_banners/' . $post->thumb_image);
 
-                echo "<a href='/post/{{ $post->category }}/{{ $post->slug }}'>
+                echo "<a href='/post/$post->category/$post->slug'>
                 <div class='post'>
 
                     <div id='postImage'>
