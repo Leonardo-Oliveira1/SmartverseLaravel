@@ -28,15 +28,15 @@ class homeController extends Controller
         );
 
         return view('home', [
-            'posts' => $this->getPostsInColumn(),
+            'posts' => $this->getPostsInColumn(0, 6),
             'LeftHighlight' => $this->getLeftMainHighlight(),
             'RightHighlight' => $this->getRightMainHighlight(),
             'CTA' => $CTAsArray
         ]);
     }
 
-    public function getPostsInColumn(){
-        $show = DB::table('posts')->orderByRaw('created_at DESC')->paginate(6);
+    public function getPostsInColumn($offset, $limit){
+        $show = DB::table('posts')->orderByRaw('created_at DESC')->limit($limit)->offset($offset)->get();
 
         return $show;
     }

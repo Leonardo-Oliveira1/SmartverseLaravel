@@ -30,6 +30,6 @@ class dashboardController extends Controller
         $user_name = $user[0][1];
         $user_profile_photo_path = $user[0][2];
 
-        return view('dashboard.dashboard', ['posts' => $posts->getPostsInColumn(), 'users' => $users->getUserData(), 'user_id' => $user_id, 'user_name' => $user_name, 'user_profile_photo_path' => $user_profile_photo_path]);
+        return view('dashboard.dashboard', ['posts' => $posts->getPostsInColumn(0, 6), 'users' => $users->getUserData(), 'user_id' => $user_id, 'user_name' => $user_name, 'user_profile_photo_path' => $user_profile_photo_path]);
     }
 }

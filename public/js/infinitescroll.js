@@ -1,6 +1,6 @@
 $(document).ready(function(){
 
-    var flag = 5;
+    var flag = 6;
 
     $(window).scroll(function() {
 
@@ -15,7 +15,7 @@ $(document).ready(function(){
                 },
                 success: function(data){
                     $('.posts').append(data);
-                    flag += 3;
+                    flag += 5;
                 }
             });
 

@@ -28,7 +28,7 @@ class postsDashboardController extends Controller
         if(isset($query)){
             return view('dashboard.postsActions', ['posts' => $postsFiltered, 'query' => $query, 'user_id' => $user_id, 'user_name' => $user_name, 'user_profile_photo_path' => $user_profile_photo_path]);
         } else {
-            return view('dashboard.postsActions', ['posts' => $posts->getPostsInColumn(), 'query' => $user_id, 'user_name' => $user_name, 'user_profile_photo_path' => $user_profile_photo_path]);
+            return view('dashboard.postsActions', ['posts' => $posts->getPostsInColumn(0, 100), 'query' => $user_id, 'user_name' => $user_name, 'user_profile_photo_path' => $user_profile_photo_path]);
         }
 
     }
