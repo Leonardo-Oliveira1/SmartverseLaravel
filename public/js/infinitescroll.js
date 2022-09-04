@@ -1,6 +1,7 @@
 $(document).ready(function(){
 
     var flag = 6;
+    var posts_variation = 5;
 
     $(window).scroll(function() {
 
@@ -11,11 +12,11 @@ $(document).ready(function(){
                 url: "/infinite_scroll",
                 data: {
                     'offset': flag,
-                    'limit': 6
+                    'limit': posts_variation
                 },
                 success: function(data){
                     $('.posts').append(data);
-                    flag += 6;
+                    flag += posts_variation;
                 }
             });
 
